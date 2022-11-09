@@ -24,27 +24,28 @@ body {
     overflow: hidden;
     /* background-color: aquamarine; */
     z-index: 50;
-    animation-name: art-move; 
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
+    animation-name: art-move, art-bounce; 
+    animation-duration: 2s, 5s;
+    animation-iteration-count: 1, infinite;
     animation-timing-function: linear;
-    animation-delay: 3s;
+    animation-delay: 0s, 2s;
 }
 
 .artdirector {
     position: relative;
-    left: 10px;
+    left: 0px;
     display: flex;
     align-content: center;
 
     font-size: 1.5rem;
 
     z-index: 10;
+
     animation-name: art-rotate; 
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    animation-delay: 3s;
+    animation-delay: 2s;
     
 }
 
@@ -57,16 +58,23 @@ body {
     rotate: 180deg;
 }
 
+@keyframes art-move {
+    from{
+        right: -200px;
+    }
+}
+
 @keyframes art-rotate {
     50% {
         rotate: 180deg;
     }
-    to {      
+
+    to {
         rotate: 360deg;
     }
 }
 
-@keyframes art-move {
+@keyframes art-bounce {
     0% {      
         transform: translate(0px);
     }
@@ -155,18 +163,18 @@ body {
 }
 
 .artwork-flower, .leg2 {
-    animation: flower-anim 3s ease-out;
+    animation: flower-anim 2s ease-out;
 }
 
 @keyframes flower-anim {
     from {
         rotate: 45deg;
-        transform: translate(100px, 200px);
+        transform: translate(300px, 500px);
     }
 }
 
 .leg1 {
-    animation: leg-anim 3s ease-in;
+    animation: leg-anim 2s ease-in;
 }
 
 @keyframes leg-anim {
