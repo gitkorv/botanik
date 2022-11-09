@@ -19,11 +19,16 @@ body {
     justify-content: end;
     width: 200px;
     height: 300px;
-    top: 20%;
+    top: 50%;
     right: 0;
     overflow: hidden;
     /* background-color: aquamarine; */
     z-index: 50;
+    animation-name: art-move; 
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-delay: 3s;
 }
 
 .artdirector {
@@ -35,7 +40,12 @@ body {
     font-size: 1.5rem;
 
     z-index: 10;
-    animation: art-rotate 2s cubic-bezier(0.83,-0.17, 0.26, 1.18) infinite;
+    animation-name: art-rotate; 
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-delay: 3s;
+    
 }
 
 .art {
@@ -51,8 +61,28 @@ body {
     50% {
         rotate: 180deg;
     }
-    to {
+    to {      
         rotate: 360deg;
+    }
+}
+
+@keyframes art-move {
+    0% {      
+        transform: translate(0px);
+    }
+    25% {
+        scale: 150%;      
+        transform: translate(-200px, -300px);
+    }
+    50% {      
+        transform: translate(-100px, 100px);
+    }
+    75% {
+        scale: 75%;      
+        transform: translate(50px, 200px);
+    }
+    100% {      
+        transform: translate(0px);
     }
 }
 
@@ -60,7 +90,13 @@ body {
 
 .section-home {
     position: relative;
-    height: 100svh;
+
+    /* Use below when designing */
+    height: 100vh;
+
+    /* Use below when deploying */
+    /* height: 100svh; */
+
     width: 100%;
     display: grid;
     grid-template-areas: 
@@ -108,6 +144,7 @@ body {
 .artwork-container {
     grid-area: b;
     display: grid;
+    align-items: flex-end;
 }
 
 .artwork-container img {
@@ -117,3 +154,33 @@ body {
     align-self: end;
 }
 
+.artwork-flower, .leg2 {
+    animation: flower-anim 3s ease-out;
+}
+
+@keyframes flower-anim {
+    from {
+        rotate: 45deg;
+        transform: translate(100px, 200px);
+    }
+}
+
+.leg1 {
+    animation: leg-anim 3s ease-in;
+}
+
+@keyframes leg-anim {
+    0% {
+        rotate: 45deg;
+        transform: translate(50px, 500px);
+    }
+    75% {
+        rotate: 45deg;
+        transform: translate(50px, 500px);
+    }
+    100% {
+        rotate: 0deg;
+        transform: translate(0px, 0px);
+    }
+
+}
