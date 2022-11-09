@@ -72,13 +72,13 @@ body {
     padding: 20px 20px 0 20px;
 }
 
-.section-two {
+/* .section-two {
     display: flex;
     height: 100vh;
     align-items: center;
     justify-content: center;
     background-color: aqua;
-}
+} */
 
 .nav {
     grid-area: t;
