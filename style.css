@@ -92,10 +92,10 @@ body {
     position: relative;
 
     /* Use below when designing */
-    height: 100vh;
+    /* height: 100vh; */
 
     /* Use below when deploying */
-    /* height: 100svh; */
+    height: 100svh;
 
     width: 100%;
     display: grid;
