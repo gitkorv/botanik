@@ -38,6 +38,7 @@ body {
     align-content: center;
 
     font-size: 1.5rem;
+    color: #b85a7e;
 
     z-index: 10;
 
@@ -130,6 +131,13 @@ body {
     justify-content: flex-end;
     text-align: right;
     font-size: 1.2rem;
+    color: #b831aa;
+
+    animation-name: nav-anim;
+    animation-duration: 1s;
+    animation-delay: 3s;
+    animation-fill-mode: both;
+
 
     /* background-color: aquamarine; */
 }
@@ -137,6 +145,16 @@ body {
 .nav ul {
     margin-left: 15px;
 }
+
+@keyframes nav-anim {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
 
 .krv-container {
     grid-area: c;
@@ -146,8 +164,41 @@ body {
     justify-content: center;
     font-size: 3.5rem;
     line-height: 3.5rem;
+    color: #251c64;
     /* background-color: bisque; */
 }
+
+.krv-karl, .krv-rickard, .krv-vestin {
+    animation-name: slidein-from-top;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-direction: forwards;
+    animation-fill-mode: both;
+}
+
+.krv-rickard {
+    animation-delay: 0.5s;
+}
+.krv-vestin {
+    animation-delay: 1s;
+}
+
+.vestin-v {
+    letter-spacing: -0.5rem;
+}
+.vestin-e {
+    letter-spacing: -0.05rem;
+}
+
+
+
+@keyframes slidein-from-top {
+    from {
+        transform: translateY(-400px);
+    }
+}
+
+/* Flower etc below */
 
 .artwork-container {
     grid-area: b;
@@ -162,8 +213,45 @@ body {
     align-self: end;
 }
 
-.artwork-flower, .leg2 {
+.leg2 {
     animation: flower-anim 2s ease-out;
+    z-index: 10;
+}
+
+.artwork-flower {
+    animation-name: flower-anim, pulse;
+    animation-duration: 2s, 1.5s;
+    animation-timing-function: ease-out, ease-in-out;
+    animation-delay: 0s, 3s;
+    animation-iteration-count: 1, infinite;
+    z-index: 20;
+}
+
+@keyframes pulse {
+    from {
+        scale: 1;
+    }
+    10% {
+        rotate: -1deg;
+        scale: 0.99;
+        transform: skew(-2deg);
+    }
+    27% {
+        scale: 1;
+    }
+    43% {
+        rotate: 2deg;
+        scale: 0.99;
+        transform: skew(-2deg);
+
+    }
+    75% {
+        scale: 1;
+    }
+    90% {
+        scale: 0.99;
+    }
+
 }
 
 @keyframes flower-anim {
@@ -174,7 +262,12 @@ body {
 }
 
 .leg1 {
-    animation: leg-anim 2s ease-in;
+    animation-name: leg-anim, leg-wiggle;
+    animation-duration: 2s, 5s;
+    animation-timing-function: ease-in, linear;
+    animation-delay: 0s, 2s;
+    animation-iteration-count: 1, infinite;
+    z-index: 0;
 }
 
 @keyframes leg-anim {
@@ -191,4 +284,15 @@ body {
         transform: translate(0px, 0px);
     }
 
+}
+
+@keyframes leg-wiggle {
+    10% {
+        rotate: 5deg;
+        z-index: 0;
+    }
+    50% {
+        rotate: -3deg;
+        z-index: 0;
+    }
 }
